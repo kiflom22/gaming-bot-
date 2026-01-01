@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --tg-theme-bg-color: #1a1a2e;
+  --tg-theme-text-color: #ffffff;
+  --tg-theme-secondary-bg-color: #16213e;
+}
+
+body {
+  background: var(--tg-theme-bg-color, #1a1a2e);
+  color: var(--tg-theme-text-color, #fff);
+}
+
+@layer components {
+  .btn {
+    @apply px-6 py-3 rounded-lg font-semibold text-white transition-all duration-150 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed w-full;
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700;
+  }
+  
+  .btn-success {
+    @apply bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600;
+  }
+  
+  .btn-danger {
+    @apply bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600;
+  }
+  
+  .game-card {
+    @apply bg-dark-700 rounded-2xl p-5 mb-3 cursor-pointer transition-transform hover:-translate-y-1 hover:bg-dark-600;
+  }
+  
+  .game-container {
+    @apply bg-dark-700 rounded-2xl p-6;
+  }
+  
+  .input-field {
+    @apply w-full p-3 border-2 border-dark-600 rounded-lg bg-dark-800 text-white text-base focus:border-indigo-500 focus:outline-none;
+  }
+}
+
+/* Custom animations */
+@keyframes roll {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-roll {
+  animation: roll 0.1s linear infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(74, 222, 128, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(74, 222, 128, 0.6); }
+}
+
+.animate-glow {
+  animation: pulse-glow 1s ease-in-out infinite;
+}
